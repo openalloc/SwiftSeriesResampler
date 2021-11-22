@@ -10,7 +10,7 @@ _SwiftSeriesResampler_ is part of the [OpenAlloc](https://github.com/openalloc) 
 
 ## SeriesResampler
 
-This example shows resampling market value data in a time series from 5 *non-uniform* intervals to 8 *uniform intervals* in the target coordinate space, as depicted in the charts.
+This example shows the resampling of market value data in a time series from 5 *non-uniform* intervals to 8 *uniform intervals* in the target, as depicted in the charts.
 
 <img src="https://github.com/openalloc/SwiftSeriesResampler/blob/main/Images/example.png" width="1149" height="397"/>
 
@@ -92,15 +92,15 @@ Computed properties are lazy, meaning that they are only calculated when first n
 
 - `var relativeDistances: [T]` - `xVal` distances from first `xVal`. The first is `0`. The last is equal to `horizontalExtent`.
 
-- `var targetInterval: T` - The width of each interval in the resampled coordinate space.
+- `var targetInterval: T` - The width of each interval between the resampled coordinates.
 
-- `var targetStride: [T]` - x-axis coordinates in the resampled coordinate space, as a stride object.
+- `var targetStride: [T]` - The resampled x-axis coordinates, as a stride object. They are uniformly-spaced.
 
-- `var targetVals: [T]` - x-axis coordinates in the resampled coordinate space, as an array object.
+- `var targetVals: [T]` - The resampled x-axis coordinates, as an array object. They are uniformly-spaced.
 
 #### Instance Methods
 
-- `func resample(yVals: [T]) -> [T]` - resample the specified array of y-coordinate values for the original `xVals` provided when initializing the resampler. Returns `targetCount` y-coordinate values in the target coordinate space.
+- `func resample(yVals: [T]) -> [T]` - Resample the specified array of y-coordinate values for the original `xVals` provided when initializing the resampler. Returns `targetCount` resampled y-coordinate values.
 
 ## See Also
 
