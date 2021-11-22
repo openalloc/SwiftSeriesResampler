@@ -1,6 +1,6 @@
 # SwiftSeriesResampler
 
-Transform a series of coordinate values to a new coordinate space with uniform intervals.
+Transform a series of coordinate values into a new series with uniform intervals.
 
 Why _SwiftSeriesResampler_? A typical use is to prepare a set of coordinates for plotting in a chart, where that chart requires uniform intervals along the x-axis, such as in a time series.
 
