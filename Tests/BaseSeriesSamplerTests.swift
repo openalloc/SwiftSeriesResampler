@@ -50,7 +50,7 @@ final class BaseSeriesSamplerTests: XCTestCase {
         let expected: [Double] = [2, 5, 6.25, 6.625, 7]
         XCTAssertEqual(expected, actual, accuracy: 0.001)
     }
-    
+
     public func testExample() throws {
         let df = ISO8601DateFormatter()
         let d1 = df.date(from: "2020-06-01T10:00:00Z")!
@@ -58,20 +58,20 @@ final class BaseSeriesSamplerTests: XCTestCase {
         let d3 = df.date(from: "2020-06-28T09:00:00Z")!
         let d4 = df.date(from: "2020-07-18T11:00:00Z")!
         let d5 = df.date(from: "2020-07-30T13:00:00Z")!
-        
+
         let intervals = [d1, d2, d3, d4, d5].map { $0.timeIntervalSinceReferenceDate }
         let marketValues = [1300.0, 1600.0, 1200.0, 800.0, 1500.0]
-        
+
         guard let s = LerpResampler(intervals, targetCount: 8) else { XCTFail(); return }
         let actual = s.resample(marketValues)
         let expected: [Double] = [1300, 1434, 1568, 1281, 1064, 896, 1011, 1500]
         XCTAssertEqual(expected, actual, accuracy: 1.0)
-        
-        //for pair in zip(s.targetVals, actual) {
+
+        // for pair in zip(s.targetVals, actual) {
         //    let d = Date(timeIntervalSinceReferenceDate: pair.0)
         //    print(String(format: "%@: $%5.0f", df.string(from: d), pair.1))
-        //}
-        
+        // }
+
         /*
          LerpResampler
          2020-06-01T10:00:00Z: $ 1300

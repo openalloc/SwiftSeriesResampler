@@ -31,29 +31,19 @@ open class BaseResampler<T>
         self.targetCount = targetCount
     }
 
-    public lazy var horizontalExtent: T = {
-        relativeDistances.last!
-    }()
-    
-    /// xVal distances from first xVal
-    public lazy var relativeDistances: [T] = {
-        xVals.map { $0 - xVals.first! }
-    }()
+    public lazy var horizontalExtent: T = relativeDistances.last!
 
-    public lazy var targetInterval: T = {
-        horizontalExtent / T(targetCount - 1)
-    }()
-    
-    public lazy var targetStride: StrideThrough<T> = {
-        stride(from: xVals.first!,
-               through: xVals.last!,
-               by: targetInterval)
-    }()
-    
-    public lazy var targetVals: [T] = {
-        Array(targetStride)
-    }()
-    
+    /// xVal distances from first xVal
+    public lazy var relativeDistances: [T] = xVals.map { $0 - xVals.first! }
+
+    public lazy var targetInterval: T = horizontalExtent / T(targetCount - 1)
+
+    public lazy var targetStride: StrideThrough<T> = stride(from: xVals.first!,
+                                                            through: xVals.last!,
+                                                            by: targetInterval)
+
+    public lazy var targetVals: [T] = Array(targetStride)
+
     /// Resample the specified values, interpolating them over the target.
     open func resample(_: [T]) -> [T] {
         fatalError("resample() not implemented in base class; use a subclass instead")

@@ -26,9 +26,7 @@ open class BaseIndiceResampler<T>: BaseResampler<T>
         xVals.count == targetIndices.count
     }
 
-    internal lazy var targetIndiceRange: ClosedRange<T> = {
-        0 ... T(targetCount - 1)
-    }()
+    internal lazy var targetIndiceRange: ClosedRange<T> = 0 ... T(targetCount - 1)
 
     /// The indices to the output vector.
     internal lazy var targetIndices: [T] = {

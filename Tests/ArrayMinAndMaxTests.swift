@@ -28,7 +28,7 @@ final class ArrayMinAndMaxTests: XCTestCase {
     }
 
     func testOneZero() throws {
-        let items: [Int] = [0]
+        let items = [0]
         let actual = items.minAndMax!
         let expected = (min: 0, max: 0)
         XCTAssertEqual(expected.min, actual.min)

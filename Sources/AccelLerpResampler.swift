@@ -16,8 +16,8 @@
 // limitations under the License.
 //
 
-import Foundation
 import Accelerate
+import Foundation
 
 /// A double-precision resampler that employs a linear interpolator from Apple's Accelerate framework.
 open class AccelLerpResamplerD: BaseIndiceResampler<Double> {

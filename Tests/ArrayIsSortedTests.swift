@@ -27,17 +27,16 @@ final class ArrayIsSortedTests: XCTestCase {
         XCTAssertTrue(items.isDescending())
         XCTAssertTrue(items.isAscending(strict: true))
         XCTAssertTrue(items.isDescending(strict: true))
-
     }
 
     func testOne() throws {
-        let items: [Int] = [5]
+        let items = [5]
         XCTAssertTrue(items.isAscending())
         XCTAssertTrue(items.isDescending())
         XCTAssertTrue(items.isAscending(strict: true))
         XCTAssertTrue(items.isDescending(strict: true))
     }
-    
+
     func testTwoAscending() throws {
         let items: [Int] = [5, 7]
         XCTAssertTrue(items.isAscending())
@@ -45,7 +44,7 @@ final class ArrayIsSortedTests: XCTestCase {
         XCTAssertTrue(items.isAscending(strict: true))
         XCTAssertFalse(items.isDescending(strict: true))
     }
-    
+
     func testTwoDescending() throws {
         let items: [Int] = [7, -1]
         XCTAssertFalse(items.isAscending())
@@ -53,19 +52,19 @@ final class ArrayIsSortedTests: XCTestCase {
         XCTAssertFalse(items.isAscending(strict: true))
         XCTAssertTrue(items.isDescending(strict: true))
     }
-    
+
     func testStrict() throws {
         let items: [Int] = [5, 5]
         XCTAssertFalse(items.isAscending(strict: true))
         XCTAssertFalse(items.isDescending(strict: true))
     }
-    
+
     func testThreeStrictBefore() throws {
         let items: [Int] = [1, 5, 5]
         XCTAssertFalse(items.isAscending(strict: true))
         XCTAssertFalse(items.isDescending(strict: true))
     }
-    
+
     func testThreeStrictAfter() throws {
         let items: [Int] = [5, 5, 7]
         XCTAssertFalse(items.isAscending(strict: true))
